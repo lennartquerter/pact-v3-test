@@ -1,0 +1,72 @@
+{
+  "consumer": {
+    "name": "front-end"
+  },
+  "interactions": [
+    {
+      "description": "a request for paginated trade-lanes with the builder pattern",
+      "providerStates": [
+        {
+          "name": "I have a list of trade-lanes"
+        }
+      ],
+      "request": {
+        "headers": {
+          "Accept": "application/json"
+        },
+        "method": "GET",
+        "path": "/trade-lanes",
+        "query": {
+          "page": [
+            "1"
+          ],
+          "pageSize": [
+            "10"
+          ]
+        }
+      },
+      "response": {
+        "body": {
+          "results": [
+            {
+              "code": "some-code",
+              "id": ""
+            }
+          ]
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$.results": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "10.1.3"
+    },
+    "pactRust": {
+      "ffi": "0.3.9",
+      "models": "0.4.5"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "trade-lanes"
+  }
+}

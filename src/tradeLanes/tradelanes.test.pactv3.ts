@@ -15,10 +15,10 @@ const tradeLaneExample = {
     code: 'some-code',
     id: '',
 };
-const EXPECTED_BODY = MatchersV3.eachLike({
-    results: [tradeLaneExample]
-});
-
+const EXPECTED_BODY = {
+    results: MatchersV3.eachLike(tradeLaneExample),
+  };
+  
 describe('GET /dogs', () => {
     it('returns an HTTP 200 and a pagination result of docs', async () => {
         provider
